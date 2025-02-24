@@ -1,0 +1,14 @@
+/* Link for colour palette: https://coolors.co/palette/edede9-d6ccc2-f5ebe0-e3d5ca-d5bdaf */
+
+
+*{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: #d5bdaf;
+    list-style:none;
+    
+}
+a{
+    text-decoration:none;
+    color:#a44a3f;
+    display:flex;
+}

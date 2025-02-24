@@ -1,0 +1,9 @@
+extends common/layout 
+
+block layout-content
+    .main-content 
+        h2 Skills 
+        each skill in skills 
+            div 
+                h3  #{skill.expertise}
+                p #{skill.description}

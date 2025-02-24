@@ -1,0 +1,12 @@
+doctype html
+html
+  head
+    title Admin Login
+  body
+    h1 Admin Login
+    form(action='/login', method='POST')
+      label Username:
+      input(type='text', name='username', required)
+      label Password:
+      input(type='password', name='password', required)
+      button(type='submit') Login
