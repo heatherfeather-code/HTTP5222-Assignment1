@@ -19,13 +19,13 @@ const loginForm = (request, response) => {
 const login = async (request, response) => {
     //authenticate user and redirect to /user
     let authStatus = await userModel.authenticateUser(request.body.u, request.body.pw);
-    console.log(auth);
+    console.log(authStatus);
     if(authStatus){
         request.session.loggedIn = true;
         request.session.user = request.body.u;
 
-        //redirect to /user
-        response.redirect("/user");
+        //redirect to /admin-dashboard
+        response.render("user/admin-dashboard");
     }
     else{
         response.render("user/login", {err: "User not found"});
@@ -36,6 +36,11 @@ const logout = (request, response) => {
     //destroy session and redirect user to home
     request.session.destroy();
     response.redirect("/");
+}
+
+const adminDashboard = (request, response) => {
+    //render the admin dashboard
+    response.render("user/admin-dashboard");
 }
 
 //render the registration page
@@ -59,6 +64,7 @@ module.exports = {
     loginForm, 
     login, 
     logout, 
+    adminDashboard,
     registerForm,
     register
 }

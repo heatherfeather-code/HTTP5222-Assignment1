@@ -1,82 +1,79 @@
-extends common/layout 
-block css 
-    link(rel="stylesheet", href="/stylesheet.css" type="text/css")
+extends ../common/layout 
 
 block layout-content 
+    .main-content
+        a(href="/") Homepage
+    h1 Welcome Administrator! 
 
-.admin-container 
-    a(href="/") Homepage
-h1 Welcome Administrator! 
+    //Adding a Project
+    h2 Add a Project
+    form(method= "POST", action="user/addProject/submit")
+        div 
+            label(for="name") Project Name:
+            input(type="text", name="name", required)
+        div
+            label(for="description") Description:
+            textarea(name="description", required)
+        div
+            label(for="languages") Languages: 
+            input(type="text", name="languages", required)
+    button(type="submit") Add Project
+            
+    //Add a Skill
+    h2 Add a Skill
 
-//Adding a Project
-h2 Add a Project
-form(method= "POST", action="user/addProject/submit")
-    div 
-        label(for="name") Project Name:
-        input(type="text", name="name", required)
-    div
-        label(for="description") Description:
-        textarea(name="description", required)
-    div
-        label(for="languages") Languages: 
-        input(type="text", name="languages", required)
-button(type="submit") Add Project
-        
-//Add a Skill
-h2 Add a Skill
+    form(method= "POST", action="user/addSkill/submit")
+        div 
+            label(for="expertise") Expertise:
+            input(type="text", name="expertise", required)
+        div
+            label(for="description") Languages:
+            textarea(name="description", required)
+    button(type="submit") Add Skill
 
-form(method= "POST", action="user/addSkill/submit")
-    div 
-        label(for="expertise") Expertise:
-        input(type="text", name="expertise", required)
-    div
-        label(for="description") Languages:
-        textarea(name="description", required)
-button(type="submit") Add Skill
+    //Update Project
+    h2 Update a Project
+    form(method = "POST" action="user/updateProject/submit")
+        div 
+            label(for="name") Project Name:
+            input(type="text", name="name", required)
+        div
+            label(for="description") Description:
+            textarea(name="description", required)
+        div
+            label(for="languages") Languages: 
+            input(type="text", name="languages", required)
+        div
+            label(for="id") Project ID:
+            input(type="text", name="id", required)
+    button(type="submit") Update Project
 
-//Update Project
-h2 Update a Project
-form(method = "POST" action="user/updateProject/submit")
-    div 
-        label(for="name") Project Name:
-        input(type="text", name="name", required)
-    div
-        label(for="description") Description:
-        textarea(name="description", required)
-    div
-        label(for="languages") Languages: 
-        input(type="text", name="languages", required)
-    div
-        label(for="id") Project ID:
-        input(type="text", name="id", required)
-button(type="submit") Update Project
+    //Update Skill
+    h2 Update a Skill
+    form(method = "POST" action="user/updateSkill/submit")
+        div 
+            label(for="expertise") Expertise:
+            input(type="text", name="expertise", required)
+        div
+            label(for="description") Languages:
+            textarea(name="description", required)
+        div
+            label(for="id") Skill ID:
+            input(type="text", name="id", required)
+    button(type="submit") Update Skill
 
-//Update Skill
-h2 Update a Skill
-form(method = "POST" action="user/updateSkill/submit")
-    div 
-        label(for="expertise") Expertise:
-        input(type="text", name="expertise", required)
-    div
-        label(for="description") Languages:
-        textarea(name="description", required)
-    div
-        label(for="id") Skill ID:
-        input(type="text", name="id", required)
-button(type="submit") Update Skill
+    //Delete Project
+    h2 Delete a Project
+    form(method = "POST" action="user/deleteProject/submit")
+        div 
+            label(for="id") Project ID:
+            input(type="text", name="id", required)
+    button(type="submit") Delete Project
 
-//Delete Project
-h2 Delete a Project
-form(method = "POST" action="user/deleteProject/submit")
-    div 
-        label(for="id") Project ID:
-        input(type="text", name="id", required)
-button(type="submit") Delete Project
-
-//Delete Skill
-h2 Delete a Skill   
-form(method = "POST" action="user/deleteSkill/submit")
-    div 
-        label(for="id") Skill ID:
-        input(type="text", name="id", required)
-button(type="submit") Delete Skill
+    //Delete Skill
+    h2 Delete a Skill   
+    form(method = "POST" action="user/deleteSkill/submit")
+        div 
+            label(for="id") Skill ID:
+            input(type="text", name="id", required)
+    button(type="submit") Delete Skill

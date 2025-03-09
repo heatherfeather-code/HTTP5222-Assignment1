@@ -13,7 +13,7 @@ router.get("/register", userController.registerForm);
 router.post("/register", userController.register);
 
 
-router.get("/admin-dashboard", userController.getAdminDashboard);
+router.get("/admin-dashboard", userController.adminDashboard);
 
 
 
