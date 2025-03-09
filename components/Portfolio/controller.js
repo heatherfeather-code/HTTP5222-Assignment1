@@ -1,5 +1,10 @@
 const portfolioModel = require("./model");
 
+const getIndex = async (request, response) => {
+    response.render("index");
+};
+
+
 const getAllSkills = async (request,response) => {
     let skillList = await portfolioModel.getSkills();
     
@@ -8,7 +13,7 @@ const getAllSkills = async (request,response) => {
         await portfolioModel.initalizeSkills();
         skillList = await portfolioModel.getSkills();
     }
-    response.render("index", {skills : skillList})
+    response.render("skills", {skills : skillList})
 };
 
 const getAllProjects = async (request, response) => {
@@ -18,10 +23,11 @@ const getAllProjects = async (request, response) => {
         await portfolioModel.initalizeProjects();
         projectsList = await portfolioModel.getProjects();
     }
-    response.render("index", {projects: projectsList})
+    response.render("projects", {projects: projectsList})
 };
 
 module.exports = {
+    getIndex,
     getAllSkills,
     getAllProjects
 };

@@ -1,9 +1,9 @@
-extends layout-content 
+extends common/layout
 
-block
-
-  h2 Projects 
-        each project in projects 
-            div 
-                h3  #{project.name}
-                p #{project.description}
+block layout-content
+  .main-content
+      h2 Projects 
+      each project in projects 
+          div 
+              h3  #{project.name}
+              p #{project.description}

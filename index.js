@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path"); //needed when setting up a static file
 
+
 const sessions = require ("express-session");
 
 const dotenv = require("dotenv");
@@ -12,17 +13,23 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || "6004";
 
+const dbName = 'portfoliodb';
+
 //set up application template engine
 app.set("views", path.join(__dirname, "views")); //the first "views" is the setting name
 //the second value above is the path : __dirname/ views
 app.set("view engine", "pug");
 
-app.get('/skills', (request, response )=>{
-    response.render('skills');
-});
-app.get("/projects", (request, response)=>{
-    response.render('projects');
-})
+
+
+
+
+// app.get('/skills', (request, response )=>{
+//     response.render('skills');
+// });
+// app.get("/projects", (request, response)=>{
+//     response.render('projects');
+// })
 // app.get("/", async (request, response) =>{
 //     try {
 //         //fetch projects and skills concurrently
