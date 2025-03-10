@@ -64,6 +64,7 @@ async function updateProject(oldLanguages, newLanguages, oldDescription, newDesc
 async function deleteProjectByName(projectName){
     await db.connect();
     let result = await Project.deleteOne({name: projectName});
+    console.log(result.deletedCount);
 }
 
 //===========SKILLS===============
@@ -111,7 +112,7 @@ async function initalizeSkills(){
 async function addSkill(skillExpertise, skillDescription, skillLanguage){
     await db.connect();
     let newSkill = new Skill({
-        skill: skillExpertise, 
+        expertise: skillExpertise, 
         languages: skillLanguage,
         description: skillDescription
     });
@@ -133,7 +134,8 @@ async function updateSkill(oldExpertise, newExpertise, oldLanguages, newLanguage
 
 async function deleteSkillByName(skillExpertise){
     await db.connect();
-    let result = await Skill.deleteOne({name:skillExpertise});
+    let result = await Skill.deleteOne({expertise:skillExpertise});
+    console.log(result.deletedCount);
 }
 
 //MODULE EXPORTS
