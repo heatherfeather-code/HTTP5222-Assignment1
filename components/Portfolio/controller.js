@@ -13,6 +13,23 @@ const getAllSkills = async (request,response) => {
         await portfolioModel.initalizeSkills();
         skillList = await portfolioModel.getSkills();
     }
+    
+    // return skillList;
+    response.send(skillList);
+};
+
+
+
+
+// dont touch this function 
+const getSkillsView = async (request,response) =>{
+    let skillList = await portfolioModel.getSkills();
+    
+
+    if(!skillList.length){
+        await portfolioModel.initalizeSkills();
+        skillList = await portfolioModel.getSkills();
+    }
     response.render("skills", {skills : skillList})
 };
 
@@ -40,6 +57,16 @@ const deleteSkillByName = async (request, response) =>{
 
 //============== Projects ==================
 const getAllProjects = async (request, response) => {
+    let projectsList = await portfolioModel.getProjects();
+
+    if(!projectsList.length){
+        await portfolioModel.initalizeProjects();
+        projectsList = await portfolioModel.getProjects();
+    }
+    response.send(projectsList);
+};
+
+const getProjectsView = async (request, response) => {
     let projectsList = await portfolioModel.getProjects();
 
     if(!projectsList.length){
@@ -78,9 +105,11 @@ const deleteProjectByName = async (request,response)=>{
 module.exports = {
     getIndex,
     getAllSkills,
+    getSkillsView,
     addSkill,
     deleteSkillByName,
     getAllProjects,
+    getProjectsView,
     addProject,
     deleteProjectByName
 };

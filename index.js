@@ -20,7 +20,10 @@ app.set("views", path.join(__dirname, "views")); //the first "views" is the sett
 //the second value above is the path : __dirname/ views
 app.set("view engine", "pug");
 
-
+//skills end point API
+app.get("/getAllSkills"),(request, response) =>{
+    
+}
 
 
 
