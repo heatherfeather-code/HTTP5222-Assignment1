@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path"); //needed when setting up a static file
+const cors = require('cors');
 
 
 const sessions = require ("express-session");
@@ -12,6 +13,8 @@ dotenv.config();
 //set up express app
 const app = express();
 const port = process.env.PORT || "6004";
+
+app.use(cors());
 
 const dbName = 'portfoliodb';
 
